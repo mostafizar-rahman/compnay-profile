@@ -1,0 +1,606 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap");
+
+$__primary_color: #08111f;
+$__secondary_color: #b476e5;
+$__main_color: #ffffff;
+$__hover_color: rgba(180, 118, 229, 0.2);
+$__border_color: #efefef;
+$__font_color: #7780a1;
+$__main_shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+$__secondray_shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+
+html {
+  font-size: 65.5%;
+}
+@mixin flex_Center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: $__main_color;
+}
+
+.container-xl {
+  max-width: 1142px;
+}
+.mediem__btn {
+  border-radius: 1.5rem;
+  height: 5rem;
+  max-width: 15rem;
+  width: 100%;
+  outline: none;
+  font-size: 1.5rem;
+}
+.title {
+  font-size: 4rem;
+  line-height: 5rem;
+  font-weight: 800;
+  margin-bottom: 5.6rem;
+}
+.sub_title {
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: rgb(71 189 255);
+}
+.py_100 {
+  padding: 10rem 0;
+}
+.mt_100 {
+  margin-top: 10rem;
+}
+body {
+  //   height: 100vh;
+  //   background-color: var(--body-color);
+  background-image: linear-gradient(to right, #fcf1f4, #edfbf9);
+  font-family: "Mulish", sans-serif;
+}
+body.dark {
+  --body-color: #18191a;
+  --nav-color: #242526;
+  --side-nav: #242526;
+  --text-color: #ccc;
+  --search-bar: #242526;
+}
+
+body.dark {
+  //   border: 1px solid #393838;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  // height: 10.4rem;
+  width: 100%;
+  background-color: $__primary_color;
+  z-index: 100;
+  @include flex_Center();
+  box-shadow: $__main_shadow;
+}
+
+.navbar {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  @include flex_between();
+
+  &__logo {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    flex-basis: 37%;
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    a {
+      font-size: 1.6rem;
+      padding: 3.6rem 2rem;
+      font-weight: 700;
+      display: block;
+      transition: all 0.7s;
+      &:hover {
+        color: $__hover_color;
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__active {
+    color: $__hover_color;
+  }
+  &__rightSide {
+    display: flex;
+    align-items: center;
+    position: relative;
+    ::after {
+      content: "";
+      position: absolute;
+      left: -50%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba($color: #4f4f4fcf, $alpha: 1);
+      width: 1px;
+      height: 70%;
+    }
+  }
+
+  &__dark__light {
+    @include flex_Center();
+    background-color: #010718ac;
+    color: $__main_color;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-left: 1.5rem;
+    font-size: 2rem;
+  }
+  &__search__Box {
+    font-size: 2rem;
+    color: $__main_color;
+    cursor: pointer;
+  }
+  &__search__field {
+    position: absolute;
+    width: 0%;
+    visibility: hidden;
+    right: 7.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    border-bottom: 1px solid $__main_color;
+    background-color: $__primary_color;
+    height: 4rem;
+    font-size: 1.4rem;
+    padding: 0 2rem;
+    transition: all 0.5s ease-in;
+  }
+  .active__shearch__field {
+    width: 70%;
+    visibility: visible;
+  }
+  .search__close_btn {
+    display: none;
+  }
+  .light__mode__btn {
+    display: none;
+  }
+  &__menu__icon {
+    display: none;
+  }
+}
+
+.banner {
+  position: relative;
+  margin-top: 10.4rem;
+  background-image: linear-gradient(to right, #0c1523, #0c1523);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  margin-left: -150px;
+  margin-right: -150px;
+
+  &__left__icon {
+    position: absolute;
+    left: 0;
+    top: 9rem;
+  }
+  &__right__icon {
+    position: absolute;
+    right: 0;
+  }
+  &__content {
+    padding-top: 10rem;
+    display: flex;
+    justify-content: space-between;
+    background-image: url("../images/world-map.png");
+  }
+  &__heading {
+    font-size: 7rem;
+    font-weight: 800;
+    color: $__main_color;
+  }
+  &__para {
+    color: $__main_color;
+    font-size: 1.8rem;
+    margin: 3.2rem 0;
+  }
+  &__content__img {
+    width: 100%;
+    max-width: 650px;
+  }
+}
+
+// -------------- Service
+.service {
+  &__card {
+    background-color: $__main_color;
+    box-shadow: $__main_shadow;
+    transition: all 0.5s;
+    border: 2px solid $__main_color;
+    &:hover {
+      background-color: $__hover_color;
+      border: 2px solid $__secondary_color;
+    }
+    &:hover &__icon {
+      background-color: $__primary_color;
+      color: $__main_color;
+    }
+    &:hover &__btn {
+      background-color: $__primary_color;
+      color: $__main_color;
+    }
+  }
+  &__card__icon {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 50%;
+    @include flex_Center();
+    background-color: $__secondary_color;
+    transition: all 0.5s;
+  }
+  &__card__title {
+    font-size: 2.2rem;
+    margin: 3.2rem 0;
+    font-weight: 700;
+  }
+  &__card__para {
+    color: $__font_color;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+  }
+  &__card__btn {
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    @include flex_Center();
+    transition: all 0.5s;
+    color: $__primary_color;
+    font-size: 1.7rem;
+  }
+}
+
+// ------------- about
+.about {
+  &__count__card {
+    background-color: $__main_color;
+    transition: all 0.5s;
+    border: 2px solid $__main_color;
+    box-shadow: $__main_shadow;
+    cursor: pointer;
+    &:hover {
+      background-color: $__hover_color;
+      border: 2px solid $__secondary_color;
+    }
+  }
+  &__card__icon {
+    color: $__secondary_color;
+    margin-top: 1rem;
+  }
+  &__card__number {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: $__font_color;
+    margin-bottom: 0.5rem;
+  }
+
+  &__card__para {
+    font-size: 1.6rem;
+    font-size: 700;
+  }
+
+  &__info {
+    max-width: 1440px;
+    margin: auto;
+    margin-top: 10rem;
+    padding: 10rem 0;
+    background-color: $__primary_color;
+    border-radius: 1.5rem;
+  }
+  &__card__para--info {
+    color: $__font_color;
+    font-weight: 600;
+  }
+  &__card__heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $__main_color;
+    margin-bottom: 0.8rem;
+  }
+  &__image {
+    position: absolute;
+    right: 3rem;
+  }
+}
+
+// --------------- Portfolio
+.portfolio {
+  &__tollbar {
+    display: flex;
+    align-items: center;
+  }
+  &__tollbar__btn {
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-right: 4rem;
+    color: $__font_color;
+    &:hover {
+      color: $__secondary_color;
+    }
+  }
+  .tollbar__active {
+    color: $__secondary_color;
+  }
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  &__card {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 30%;
+    margin-bottom: 37px;
+    border-radius: 2.4rem;
+    box-shadow: $__secondray_shadow;
+    transition: all 0.5s;
+    border: 1px solid $__main_color;
+    padding: 0;
+    &:hover {
+      background-color: $__hover_color;
+      border: 1px solid $__secondary_color;
+    }
+    img {
+      width: 100%;
+      border-top-right-radius: 2.4rem;
+      border-top-left-radius: 2.4rem;
+      max-height: 18rem;
+    }
+  }
+  &__card__heading {
+    color: $__primary_color;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  &__card__para {
+    color: $__font_color;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+}
+
+// ----------------- Pricing
+.pricing {
+  &__card {
+    background-color: $__main_color;
+    border-radius: 2.4rem;
+    padding: 2.4rem;
+    transition: all 0.5s;
+  }
+  &__card--monthly {
+    border: 2px solid #47bdff;
+    &:hover .pricing__list__para {
+      color: $__main_color;
+    }
+    &:hover {
+      background-color: #47bdff;
+      color: $__main_color;
+    }
+    &:hover .pricing__btn {
+      background-color: $__main_color;
+      color: #47bdff;
+    }
+    &:hover .pricing__blut {
+      background-color: $__main_color;
+    }
+    &:hover .pricing__time {
+      color: $__main_color;
+    }
+  }
+  &__card--yearly {
+    border: 2px solid $__secondary_color;
+    &:hover .pricing__list__para {
+      color: $__main_color;
+    }
+    &:hover {
+      background-color: $__secondary_color;
+      color: $__main_color;
+    }
+    &:hover .pricing__btn {
+      background-color: $__main_color;
+      color: $__secondary_color;
+    }
+    &:hover .pricing__blut {
+      background-color: $__main_color;
+    }
+    &:hover .pricing__time {
+      color: $__main_color;
+    }
+  }
+
+  &__card--pro {
+    border: 2px solid $__primary_color;
+    &:hover .pricing__list__para {
+      color: $__main_color;
+    }
+    &:hover {
+      background-color: $__primary_color;
+      color: $__main_color;
+    }
+    &:hover .pricing__btn {
+      background-color: $__main_color;
+      color: $__primary_color;
+    }
+    &:hover .pricing__blut {
+      background-color: $__main_color;
+    }
+    &:hover .pricing__time {
+      color: $__main_color;
+    }
+  }
+  &__title {
+    font-size: 2.2rem;
+    margin-bottom: 3.2rem;
+    font-weight: 800;
+  }
+  &__list {
+    margin-bottom: 2rem;
+  }
+  &__list__para {
+    font-size: 1.4rem;
+    color: $__font_color;
+    font-weight: 700;
+    padding-left: 1.2rem;
+  }
+  &__time {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $__font_color;
+  }
+  &__blut {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #47bdff;
+  }
+  &__blut--yearly {
+    background-color: $__secondary_color;
+  }
+  &__blut--pro {
+    background-color: $__primary_color;
+  }
+  &__btn {
+    @include flex_Center();
+    font-size: 2rem;
+    padding: 1.6rem 2.8rem;
+    font-weight: 800;
+    width: 17rem;
+    border-radius: 1.4rem;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__btn--month {
+    background-color: #47bdff;
+    color: $__main_color;
+  }
+  &__btn--yearly {
+    background-color: $__secondary_color;
+  }
+  &__btn--pro {
+    background-color: $__primary_color;
+  }
+  &__footer {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+  }
+}
+// --------------- Team
+.team {
+  &__card {
+    transition: all 0.5s;
+    &:hover &__image {
+      box-shadow: $__main_shadow;
+    }
+    &:hover &__name {
+      color: $__secondary_color;
+    }
+  }
+  &__card__image {
+    border-radius: 2.4rem;
+    transition: all 0.5s;
+  }
+  &__card__name {
+    padding-top: 2rem;
+    padding-bottom: 0.8rem;
+    color: $__primary_color;
+    font-size: 2rem;
+    font-weight: 800;
+    transition: all 0.5s;
+  }
+  &__card__position {
+    color: $__font_color;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: block;
+  }
+}
+
+// --------------- testimonial
+.testimonial{
+    background-color: $__primary_color;
+}
+@media (max-width: 991px) {
+  header {
+    height: 9.2rem;
+  }
+  .navbar {
+    &__menu__icon {
+      display: block;
+      color: $__main_color;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    &__links {
+      flex-direction: column;
+      align-items: start;
+      li {
+        border-bottom: 1px solid $__border_color;
+        display: block;
+        width: 100%;
+      }
+      a {
+        color: $__primary_color;
+        padding: 1.6rem;
+      }
+    }
+    &__close__icon {
+      border-bottom: 1px solid $__border_color;
+      font-size: 2rem;
+      padding: 1rem 2rem;
+      text-align: right;
+    }
+    &__menu {
+      position: fixed;
+      height: 100%;
+      width: 320px;
+      right: -100%;
+      top: 0;
+      background-color: $__main_color;
+      z-index: 100;
+      transition: all 0.4s ease;
+    }
+    .active {
+      right: -0%;
+    }
+  }
+
+  .banner {
+    margin-top: 9rem;
+    &__content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
